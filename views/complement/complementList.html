@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="table" id="complement-container">
+    <table id="#table-complement" class="display" border="34">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>
+                <td><img width="100" src="data:image/png;base64,{{ complement.image }}"/></td>
+
+                <td><a href="{{ url }}?c=complement&t=edit&id={{ complement.id }}">Modifier</td>
+                <td><a href="{{ url }}?c=complement&t=delete&id{{ complement.id }}">Supprimer</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for complement in complements %}
+                <tr>
+                    <td>{{ complement.id }}</td>
+                    <td>{{ complement.title }}</td>
+                    <td>{{ complement.description }}</td>
+                    <td><img width="100" src="data:image/png;base64, {{ complement.image }}"/></td>
+                </tr>
+            {% endfor %}
+        <script>
+            new DataTable('#table-complement');
+        </script>
+        </tbody>
+    </table>
+    <p>
+        <a href="http://195.154.118.169/guillaume/projetMMA/start.php?c=complement&t=create">Créer un article sur l'UFC : </a>
+    </p>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#table-complement").DataTable({
+                    "pageLength": 10,
+                    "language": {
+                        "search": "Rechercher:",
+                        "lengthMenu": "Afficher _MENU_ éléments",
+                        "info": "Affichage de _START_ à _END_ sur _TOTAL_ éléments",
+                        "paginate": {
+                            "first": "Premier",
+                            "last": "Dernier",
+                            "next": "Suivant",
+                            "previous": "Précédent"
+                        }
+                    },
+                    "dom": '<"top"f>rt<"bottom"ip><"clear">',
+                    "initComplete": function(settings, json) {
+                        $("#complement-container p").insertAfter("#table-complement_filter");
+                    }
+                });
+            });
+        </script>
+{% endblock %}

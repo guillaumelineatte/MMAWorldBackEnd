@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h1>
+        Edition du complément
+    </h1>
+    <form action="{{url}}?c=complement&t=update&id={{ complement.id }}" method="post" enctype="multipart/form-data">
+        <label for="id">Id :</label>
+        <input type="hidden" id="id" name="id" value="{{ complement.id }}"><br>
+
+        <label for="title">Titre : </label>
+        <input type="text" id="title" name="title" value="{{ complement.title }}"><br>
+
+        <label>Description : </label>
+        <input type="text" id="description" name="description" value="{{ complement.description }}"><br>
+
+        <label for="image">Image :</label>
+        <input type="file" id="image" name="image" value="{{ complement.image }}"><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

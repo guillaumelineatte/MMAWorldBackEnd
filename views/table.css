@@ -1,0 +1,17 @@
+.table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.table table {
+    width: 80%;
+    margin: 20px 0;
+}
+.table img {
+    max-width: 100px;
+}
+.table a {
+    margin-top: 10px;
+}

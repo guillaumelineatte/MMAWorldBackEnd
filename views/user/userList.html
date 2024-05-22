@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body %}
+<table id="table" class="display" border="34">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>nom</th>
+            <th>prénom</th>
+            <th>age</th>
+            <th>Avatar</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.age }}</td>
+            <td><img width="100" src="data:image/png;base64, {{ user.avatar }}"/></td>
+            <td><a href="">Voir</a></td>
+            <td><a href="{{ url }}?c=user&t=edit&id={{ user.id }}">Modifier</a></td>
+            <td><a href="{{ url }}?c=user&t=delete&id{{ user.id }}">Supprimer</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#table").DataTable({
+            "pageLength": 10,
+            "language": {
+                "search": "Rechercher:",
+            }
+        });
+    });
+</script>
+{% endblock %}
+

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement des vêtements
+    </h1>
+    <form action="{{url}}?c=cloth&t=update&id={{  cloth.id }}" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+
+        <input type="hidden" id="name" name="name" value="{{ cloth.id }}"><br>
+
+        <label for="title">Nom : </label>
+        <input type="text" id="title" name="title" value="{{ cloth.title }}"><br>
+
+        <label for="description">Age : </label>
+        <input id="description" name="description" value="{{ cloth.description }}"><br>
+
+        <label for="image">Photo : </label>
+        <input type="file" id="image" name="image" value="{{ cloth.image }}"><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

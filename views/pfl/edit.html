@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h1>
+        Edition de l'article du PFL
+    </h1>
+    <form action="{{url}}?c=pfl&t=update&id={{ pfl.id }}" method="post" enctype="multipart/form-data">
+        <label for="id">Id :</label>
+        <input type="hidden" id="id" name="id" value="{{ pfl.id }}"><br>
+
+        <label for="title">Titre : </label>
+        <input type="text" id="title" name="title" value="{{ pfl.title }}"><br>
+
+        <label>Description : </label>
+        <input type="text" id="description" name="description" value="{{ pfl.description }}"><br>
+
+        <label for="image">Image :</label>
+        <input type="file" id="image" name="image" value="{{ pfl.image }}"><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

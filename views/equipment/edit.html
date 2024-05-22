@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement de l'équipement
+    </h1>
+    <form action="{{url}}?c=equipment&t=update&id={{  equipment.id }}" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+
+        <input type="hidden" id="name" name="name" value="{{ equipment.id }}"><br>
+
+        <label for="title">Nom : </label>
+        <input type="text" id="title" name="title" value="{{ equipment.title }}"><br>
+
+        <label for="description">Age : </label>
+        <input id="description" name="description" value="{{ equipment.description }}"><br>
+
+        <label for="image">Photo : </label>
+        <input type="file" id="image" name="image" value="{{ equipment.image }}"><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

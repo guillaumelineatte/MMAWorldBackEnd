@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+    <h1>
+        Enregistrement de l'organisation
+    </h1>
+    <form action="?c=organisation&t=insert" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="country">Pays :</label>
+        <input type="text" id="country" name="country" required><br>
+
+        <label for="founder">Fondateur :</label>
+        <input type="text" id="founder" name="founder" required><br>
+
+        <label for="roster">Nombre de combattants :</label>
+        <input id="roster" name="roster" required><br>
+
+        <label for="logo">Logo :</label>
+        <input type="file" id="logo" name="logo" required><br>
+
+        <input type="submit" value="Envoyer">
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block body %}
+<table id="table" class="display" border = 34>
+    <thead>
+        <tr>
+        <th>id</th>
+		<th>nom</th>
+        <th>ville</th>
+		<th>places</th>
+        <th>photo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for arena in arenas %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.city }}</td>
+            <td>{{ user.place }}</td>
+            <td>{{ user.icon }}</td>
+            <td><img width="100" src="data:image/png;base64, {{ arena.icon }}"/></td>
+            <td> <a href="">Voir</a>
+                <td><a href="{{ url }}?c=arena&t=edit&id={{ arena.id }}">Modifier</a></td>
+                <td><a href="">Supprimer</td>
+        </tr>
+    {% endfor %}
+    <script>
+        new DataTable('#table');
+    </script>
+    </tbody>
+</table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $("#table").dataTable({
+
+        "pageLength": 10,
+        "Show" : "Montrer",
+        "language": {
+            "search": "Rechercher:",
+        }
+    });
+</script>
+{% endblock %}

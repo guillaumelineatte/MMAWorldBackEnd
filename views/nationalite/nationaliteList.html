@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement de la nationalité
+    </h1>
+    <form action="?c=nationalite&t=insert" method="post">
+        <label for="nom">Nationalité :</label>
+        <input type="text" id="nom" name="nom" required><br>
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table id="#table" class="display" border="34">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Âge</th>
+                <th>Poids</th>
+                <th>Taille</th>
+                <th>Allonge</th>
+                <th>Photo</th>
+                <th>Victoire</th>
+                <th>Défaite</th>
+                <th>Egalité</th>
+                <th>Nationalité</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for combattant in combattants %}
+                <tr>
+                    <td>{{ combattant.id }}</td>
+                    <td>{{ combattant.name }}</td>
+                    <td>{{ combattant.age }}</td>
+                    <td>{{ combattant.poids }}</td>
+                    <td>{{ combattant.taille }}</td>
+                    <td>{{ combattant.allonge }}</td>
+                    <td>{{ combattant.photo }}</td>
+                    <td><img width="100" src="data:image/png;base64, {{ combattant.photo }}"/></td>
+
+                        <td><a href="{{ url }}?c=combattant&t=edit&id={{ combattant.id }}">Modifier</a></td>
+                        <td><a href="{{ url }}?c=combattant&t=delete&id={{ combattant.id }}">Supprimer</a></td>
+                    <td>{{ combattant.victoire }}</td>
+                    <td>{{ combattant.defaite }}</td>
+                    <td>{{ combattant.egalite }}</td>
+                    <td>{{ combattant.nationalite_id }}</td>
+                </tr>
+            {% endfor %}
+        <script>
+            new DataTable('#table');
+        </script>
+        </tbody>
+    </table>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $("#table").dataTable({
+
+            "pageLength": 10,
+            "Show" : "Montrer",
+            "language": {
+                "search": "Rechercher:",
+            }
+        });
+    </script>
+{% endblock %}

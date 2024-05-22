@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="table" id="cloth-container">
+    <table id="#table-cloth" class="display" border="34">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>
+                <td><img width="100" src="data:image/png;base64,{{ cloth.image }}"/></td>
+
+                <td><a href="{{ url }}?c=cloth&t=edit&id={{ cloth.id }}">Modifier</td>
+                <td><a href="{{ url }}?c=cloth&t=delete&id{{ cloth.id }}">Supprimer</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cloth in cloths %}
+                <tr>
+                    <td>{{ cloth.id }}</td>
+                    <td>{{ cloth.title }}</td>
+                    <td>{{ cloth.description }}</td>
+                    <td><img width="100" src="data:image/png;base64, {{ cloth.image }}"/></td>
+                </tr>
+            {% endfor %}
+        <script>
+            new DataTable('#table-cloth');
+        </script>
+        </tbody>
+    </table>
+    <p>
+        <a href="http://195.154.118.169/guillaume/projetMMA/start.php?c=cloth&t=create">Créer un article sur l'UFC : </a>
+    </p>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#table-cloth").DataTable({
+                    "pageLength": 10,
+                    "language": {
+                        "search": "Rechercher:",
+                        "lengthMenu": "Afficher _MENU_ éléments",
+                        "info": "Affichage de _START_ à _END_ sur _TOTAL_ éléments",
+                        "paginate": {
+                            "first": "Premier",
+                            "last": "Dernier",
+                            "next": "Suivant",
+                            "previous": "Précédent"
+                        }
+                    },
+                    "dom": '<"top"f>rt<"bottom"ip><"clear">',
+                    "initComplete": function(settings, json) {
+                        $("#cloth-container p").insertAfter("#table-cloth_filter");
+                    }
+                });
+            });
+        </script>
+{% endblock %}

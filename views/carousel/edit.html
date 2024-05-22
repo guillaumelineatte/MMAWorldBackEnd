@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement de l'arène
+    </h1>
+    <form action="{{url}}?c=carousel&t=update&id={{ arena.id }}" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+
+        <input type="hidden" id="name" name="name" value="{{ carousel.id }}"><br>
+
+        <input type="text" id="name" name="name" value="{{ carousel.name }}"><br>
+
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title" value="{{ carousel.title }}"><br>
+
+        <label for="description">Description :</label>
+        <input id="description" name="description" value="{{ carousel.description }}"><br>
+
+        <label for="photo">Bannière :</label>
+        <input type="file" id="photo" name="photo" value="{{ carousel.banner }}"><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

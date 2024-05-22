@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Se connecter{% endblock %}</title>
+    <link rel="shortcut icon" href="http://195.154.118.169/guillaume/projetMMA/logo_mmaworld.png" type="image/svg+xml">
+    <link href="http://195.154.118.169/guillaume/projetMMA/views/login.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    {% block body %}
+
+    <div class="card">
+        <h2>Se connecter</h2>
+        <img src="http://195.154.118.169/guillaume/projetMMA/logo_mmaworld.png" alt="" class="logo">
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+            <br>
+        <form method="post" action="{{ url }}?c=user&t=checkLogin">
+            <label for="name">Nom d'utilisateur :</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Connexion">
+        </form>
+    </div>
+
+    {% endblock %}
+</body>
+</html>

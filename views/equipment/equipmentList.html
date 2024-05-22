@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="table" id="equipment-container">
+    <table id="#table-equipment" class="display" border="34">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>
+                <td><img width="100" src="data:image/png;base64,{{ equipment.image }}"/></td>
+
+                <td><a href="{{ url }}?c=equipment&t=edit&id={{ equipment.id }}">Modifier</td>
+                <td><a href="{{ url }}?c=equipment&t=delete&id{{ equipment.id }}">Supprimer</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for equipment in equipments %}
+                <tr>
+                    <td>{{ equipment.id }}</td>
+                    <td>{{ equipment.title }}</td>
+                    <td>{{ equipment.description }}</td>
+                    <td><img width="100" src="data:image/png;base64, {{ equipment.image }}"/></td>
+                </tr>
+            {% endfor %}
+        <script>
+            new DataTable('#table-equipment');
+        </script>
+        </tbody>
+    </table>
+    <p>
+        <a href="http://195.154.118.169/guillaume/projetMMA/start.php?c=equipment&t=create">Créer un article sur l'UFC : </a>
+    </p>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#table-equipment").DataTable({
+                    "pageLength": 10,
+                    "language": {
+                        "search": "Rechercher:",
+                        "lengthMenu": "Afficher _MENU_ éléments",
+                        "info": "Affichage de _START_ à _END_ sur _TOTAL_ éléments",
+                        "paginate": {
+                            "first": "Premier",
+                            "last": "Dernier",
+                            "next": "Suivant",
+                            "previous": "Précédent"
+                        }
+                    },
+                    "dom": '<"top"f>rt<"bottom"ip><"clear">',
+                    "initComplete": function(settings, json) {
+                        $("#equipment-container p").insertAfter("#table-equipment");
+                    }
+                });
+            });
+        </script>
+{% endblock %}

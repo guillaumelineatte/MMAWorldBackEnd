@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h1>
+        Edition de l'article du ONE FC
+    </h1>
+    <form action="{{url}}?c=one&t=update&id={{ one.id }}" method="post" enctype="multipart/form-data">
+        <label for="id">Id :</label>
+        <input type="hidden" id="id" name="id" value="{{ one.id }}"><br>
+
+        <label for="title">Titre : </label>
+        <input type="text" id="title" name="title" value="{{ one.title }}"><br>
+
+        <label>Description : </label>
+        <input type="text" id="description" name="description" value="{{ one.description }}"><br>
+
+        <label for="image">Image :</label>
+        <input type="file" id="image" name="image" value="{{ one.image }}"><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

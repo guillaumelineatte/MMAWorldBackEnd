@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement de l'arène
+    </h1>
+    <form action="{{url}}?c=organisation&t=update&id={{ organisation.id }}" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+
+        <input type="hidden" id="name" name="name" value="{{ organisation.id }}"><br>
+
+        <label for="name">Nom : </label>
+        <input type="text" id="name" name="name" value="{{ organisation.name }}"><br>
+
+        <label>Pays : </label>
+        <input type="text" id="name" name="name" value="{{ organisation.country }}"><br>
+
+        <label for="city">Ville : </label>
+        <input type="text" id="city" name="city" value="{{ organisation.founder }}"><br>
+
+        <label for="place">Age : </label>
+        <input id="place" name="place" value="{{ organisation.roster }}"><br>
+
+        <label for="logo">Logo :</label>
+        <input type="file" id="logo" name="logo" value="{{ organisation.logo }}"><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

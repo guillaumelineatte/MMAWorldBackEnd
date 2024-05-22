@@ -1,0 +1,92 @@
+.logo_mma   {
+    width: 225px;
+    height: auto;
+}
+
+html, body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-basepage {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.logo_mma {
+    max-width: 200px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.table-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.user-card, .fighter-card, .organisation-card, .arena-card, .carousel-card, .image-card,
+.equipment-card, .cloth-card, .complement-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-card:hover, .fighter-card:hover, .organisation-card:hover, .arena-card:hover, .carousel-card:hover, .image-card:hover,
+.equipment-card:hover, .cloth-card:hover, .complement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    width: 200px;
+    display: block;
+    margin: 10px;
+    text-align: center;
+}
+
+.card-link:nth-child(odd) {
+    margin-right: 20px;
+}
+
+.logout-btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+    background-color: #3498db;
+}

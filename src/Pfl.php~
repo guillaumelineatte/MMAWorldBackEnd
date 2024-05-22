@@ -1,0 +1,21 @@
+<?php
+// src/Pfls.php
+
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
+#[ORM\Table(name: 'pfls')]
+class Pfl
+{
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    private int|null $id = null;
+    #[ORM\Column(type: 'string')]
+    private string $title;
+    #[ORM\Column(type: 'string')]
+    private string $description;
+    #[ORM\Column(type: 'string')]
+    private string $image;
+
+}

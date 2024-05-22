@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<header>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</header>
+<h1>
+	Bonjour {{ user_name }}
+</h1>
+
+<h3>{{ the }} {{ go }}</h3>
+
+<ul>
+    {% for data in array %}
+        <li>{{ data }}</li>
+    {% endfor %}
+</ul>
+<table id="table" class="display" border = 34>
+    <thead>
+        <tr>
+            <th>Table des users</th>
+        </tr>
+    </thead>
+    <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ users.id }}</td>
+                    <td>{{ users.nom }}</td>
+                    <td>{{ users.prenom }}</td>
+                    <td>{{ users.password }}</td>
+                </tr>
+            {% endfor %}
+    <script>
+        new DataTable('#table');
+    </script>
+    </tbody>
+</table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $("#table").dataTable({
+
+        "pageLength": 10,
+        "Show" : "Montrer",
+        "language": {
+            "search": "Rechercher:",
+        }
+    });
+</script>

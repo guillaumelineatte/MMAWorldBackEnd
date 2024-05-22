@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement de l'arène
+    </h1>
+    <form action="?c=arena&t=insert" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="city">Ville :</label>
+        <input type="text" id="city" name="city" required><br>
+
+        <label for="place">Place :</label>
+        <input id="place" name="place" required><br>
+
+        <label for="photo">Photo :</label>
+        <input type="file" id="photo" name="photo" required><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

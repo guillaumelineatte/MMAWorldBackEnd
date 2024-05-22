@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement du combattant
+    </h1>
+    <form action="?c=combattant&t=insert" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="surname" name="surname" required><br>
+
+        <label for="pseudo">Pseudo :</label>
+        <input type="text" id="pseudo" name="pseudo" required><br>
+
+        <label for="age">Age :</label>
+        <input id="age" name="age" required><br>
+
+        <label for="poids">Poids :</label>
+        <input id="poids" name="poids" required><br>
+
+        <label for="taille">Taille :</label>
+        <input id="taille" name="taille" required><br>
+
+        <label for="allonge">Allonge :</label>
+        <input id="allonge" name="allonge" required><br>
+
+        <label for="photo">Photo :</label>
+        <input type="file" id="photo" name="photo" required><br>
+
+        <label for="victoire">Victoire :</label>
+        <input id="victoire" name="victoire" required><br>
+
+        <label for="defaite">Défaite :</label>
+        <input id="defaite" name="defaite" required><br>
+
+        <label for="egalite">Egalite :</label>
+        <input id="egalite" name="egalite" required><br>
+
+        <label for="nationalite">Nationalité</label>
+        <input id="nationalite" name="nationalite" required><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

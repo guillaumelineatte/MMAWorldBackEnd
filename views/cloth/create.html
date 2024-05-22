@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement des vêtements
+    </h1>
+    <form action="?c=cloth&t=insert" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="description">Description :</label>
+        <input id="description" name="description" required><br>
+
+        <label for="image">Photo :</label>
+        <input type="file" id="image" name="image" required><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

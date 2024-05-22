@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="table" id="carousel-container">
+<table id="table-carousel" class="display" border="34">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>description</th>
+            <th>bannière</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for carousel in carousels %}
+        <tr>
+            <td>{{ carousel.id }}</td>
+            <td>{{ carousel.title }}</td>
+            <td>{{ carousel.description }}</td>
+            <td><img width="100" src="data:image/png;base64, {{ carousel.banner }}"/></td>
+            <td>
+                <a href="#">Voir</a>
+                <a href="{{ url }}?c=carousel&t=edit&id={{ carousel.id }}">Modifier</a>
+                <a href="{{ url }}?c=carousel&t=delete&id={{ carousel.id }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p class="link-create">
+    <a href="http://195.154.118.169/guillaume/projetMMA/start.php?c=carousel&t=create">Créer un article sur l'UFC : </a>
+</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#table-carousel").dataTable({
+            "pageLength": 10,
+            "language": {
+                "search": "Rechercher :",
+                "lengthMenu": "Afficher _MENU_ éléments",
+                "info": "Affichage de _START_ à _END_ sur _TOTAL_ éléments",
+                "paginate": {
+                    "first": "Premier",
+                    "last": "Dernier",
+                    "next": "Suivant",
+                    "previous": "Précédent"
+                }
+                },
+            "dom": '<"top"f>rt<"bottom"ip><"clear">',
+            "initComplete": function(settings, json) {
+                $("#carousel-container p").insertAfter("#table-carousel_filter");
+            }
+        });
+    });
+</script>
+{% endblock %}

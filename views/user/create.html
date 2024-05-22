@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="card">
+    <h2>
+        Enregistrement de l'utilisateur
+    </h2>
+    <img src="http://195.154.118.169/guillaume/projetMMA/views/MMAWorld.png" alt="" class="logo">
+    <form action="?c=user&t=insert" method="post" enctype="multipart/form-data">
+
+        <label>Nom d'utilisateur : </label>
+        <input type="text" id="pseudo" name="pseudo"><br>
+        <label for="nom">Nom :</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="surname" name="surname" required><br>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="age">Age :</label>
+        <input id="age" name="age" required><br>
+
+        <label for="avatar">Avatar :</label>
+        <input type="file" id="avatar" name="avatar" required><br>
+
+        <input type="submit" value="Envoyer">
+
+        <p>
+            Déjà un compte ? Connectez-vous <a href="{{ url }}?c=user&t=login">Se connecter</a>
+        </p>
+    </form>
+</div>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function () {
+            window.location.href = "{{ url }}?c=user&t=login";
+        });
+    </script>
+
+{% endblock %}

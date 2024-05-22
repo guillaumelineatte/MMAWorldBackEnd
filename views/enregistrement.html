@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="shortcut icon" href="http://195.154.118.169/guillaume/projetMMA/logo_mmaworld.png" type="image/svg+xml">
+    <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Formulaire de Connexion</h2>
+    <form method="post" action="{{ url }}?c=user&t=login">
+
+        <label for="mail">Mail:</label>
+        <input type="text" id="mail" name="mail" required></br>
+
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="name" name="name" required></br>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required></br>
+
+        <label for="city">Ville:</label>
+        <input type="text" id="city" name="city" required></br>
+
+        <input type="submit" value="S'enregistrer">
+
+        <p>
+            Déjà un compte ? Connectez-vous <a href="{{ url }}?c=user&t=login">Se connecter</a>
+        </p>
+    </form>
+</body>
+</html>

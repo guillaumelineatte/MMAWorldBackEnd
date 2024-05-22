@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MMA Website{% endblock %}</title>
+    <link rel="shortcut icon" href="http://195.154.118.169/guillaume/projetMMA/logo_mmaworld.png" type="image/svg+xml">
+    <link href="/projetMMA/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/images/MMAWorld.png" type="image/svg+xml">
+    <link href="http://195.154.118.169/guillaume/projetMMA/views/base.css" rel="stylesheet">
+    <link href="http://195.154.118.169/guillaume/projetMMA/views/table.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+</head>
+
+<body>
+    {% block body  %}
+
+    <a href="{{url}}start.php?c=user&t=logout" class="logout-btn">Déconnexion</a>
+    <header class="header-basepage">
+        <img src="http://195.154.118.169/guillaume/projetMMA/logo_mmaworld.png" alt="LogoMMA" class="logo_mma" />
+        <h1>Bonjour {{ user_name }} !</h1>
+    </header>
+
+    <div class="table-container">
+        <div class="user-card">
+            <a href="{{url}}?c=user&t=userList" class="card-link">Utilisateurs</a>
+        </div>
+        <div class="fighter-card">
+            <a href="{{url}}?c=combattant&t=combattantList" class="card-link">Combattants</a>
+        </div>
+        <div class="organisation-card">
+            <a href="{{url}}?c=organisation&t=organisationList" class="card-link">Organisations</a>
+        </div>
+        <div class="organisation-card">
+            <a href="{{url}}?c=image&t=imageList" class="card-link">Images frontend</a>
+        </div>
+        <div class="carousel-card">
+            <a href="{{url}}?c=carousel&t=carouselList" class="card-link">Carousel</a>
+        </div>
+        <div class="arena-card">
+            <a href="{{url}}?c=arena&t=arenaList" class="card-link">Arènes</a>
+        </div>
+        <div class="equipment-card">
+            <a href="{{url}}?c=equipment&t=equipmentList" class="card-link">Équipements</a>
+        </div>
+        <div class="cloth-card">
+            <a href="{{url}}?c=cloth&t=clothList" class="card-link">Vêtements</a>
+        </div>
+        <div class="complement-card">
+            <a href="{{url}}?c=complement&t=compelementList" class="card-link">Compléments</a>
+        </div>
+    </div>
+
+	{% endblock %}
+
+</body>
+</html>

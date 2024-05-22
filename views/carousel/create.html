@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Enregistrement des éléments du carousel
+    </h1>
+    <form action="?c=carousel&t=insert" method="post" enctype="multipart/form-data">
+
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="description">Description :</label>
+        <input id="description" name="description" required><br>
+
+        <label for="banner">Bannière :</label>
+        <input type="file" id="banner" name="banner" required><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

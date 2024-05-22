@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="table" id="ufc-container">
+<table id="table-ufc" class="display" border="34">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ufc in ufcs %}
+        <tr>
+            <td>{{ ufc.id }}</td>
+            <td>{{ ufc.title }}</td>
+            <td>{{ ufc.description }}</td>
+            <td><img width="100" src="data:image/png;base64, {{ ufc.image }}"/></td>
+            <td>
+                <a href="{{ url }}?c=ufc&t=edit&id={{ ufc.id }}">Modifier</a>
+                <a href="{{ url }}?c=ufc&t=delete&id={{ ufc.id }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>
+    <a href="http://195.154.118.169/guillaume/projetMMA/start.php?c=ufc&t=create">Créer un article sur l'UFC : </a>
+</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#table-ufc").DataTable({
+            "pageLength": 10,
+            "language": {
+                "search": "Rechercher:",
+                "lengthMenu": "Afficher _MENU_ éléments",
+                "info": "Affichage de _START_ à _END_ sur _TOTAL_ éléments",
+                "paginate": {
+                    "first": "Premier",
+                    "last": "Dernier",
+                    "next": "Suivant",
+                    "previous": "Précédent"
+                }
+            },
+            "dom": '<"top"f>rt<"bottom"ip><"clear">',
+            "initComplete": function(settings, json) {
+                $("#ufc-container p").insertAfter("#table-ufc_filter");
+            }
+        });
+    });
+</script>
+{% endblock %}
